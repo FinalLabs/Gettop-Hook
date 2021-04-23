@@ -6,20 +6,17 @@ int x(int addy) {
 	return (addy - 0x400000 + reinterpret_cast<int>(GetModuleHandleA("RobloxPlayerBeta.exe")));
 }
 
-namespace Gettop
-{
+namespace Gettop {
 	uintptr_t r_lua_state = 0;
 
-	int __cdecl sub_154D6F0(int a1) //gettop lol
-	{
+	int __cdecl sub_154D6F0(int a1) { //gettop lol 
 		r_lua_state = a1;
 		return (*(DWORD*)(a1 + 20) - *(DWORD*)(a1 + 24)) >> 4;
 	}
 
 	int GettopAddr = x(0x1526A90);
 
-	int GetRState()
-	{
+	int GetRState() {
 		DetourTransactionBegin();
 		DetourUpdateThread(GetCurrentThread());
 		DetourAttach(&reinterpret_cast<void*&>(GettopAddr), &sub_154D6F0);
