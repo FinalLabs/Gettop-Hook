@@ -9,7 +9,7 @@ int main() {
   
   RState = Gettop::GetRState();
   
-  printf("RState: %08X\n", RState); //value of after before we hook gettop
+  printf("RState: %08X\n", RState); //value of after after we hook gettop
   
   return true;
 }
