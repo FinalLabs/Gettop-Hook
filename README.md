@@ -1,6 +1,6 @@
 # How to use
 ```c++
-#include "GettopHook.hpp"
+#include "GettopHook.h"
 
 int main() {
   uintptr_t RState{};
