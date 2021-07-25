@@ -1,4 +1,6 @@
-# How to use
+# Info
+I advise you to not use this, it is a horrible way of getting lua state
+# Usage
 ```c++
 #include "GettopHook.h"
 
