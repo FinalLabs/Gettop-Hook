@@ -1,5 +1,5 @@
 # Info
-I advise you to not use this, it is a horrible way of getting lua state
+Repository now archived.
 # Usage
 ```c++
 #include "GettopHook.h"
