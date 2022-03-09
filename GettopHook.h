@@ -7,10 +7,10 @@ __forceinline int x(int addy) {
 }
 
 namespace Gettop {
-	uintptr_t r_lua_state = 0;
+	uintptr_t state = 0;
 
 	int __cdecl gettop_detour(int a1) { //gettop lol 
-		r_lua_state = a1;
+		state = a1;
 		return (*(DWORD*)(a1 + top) - *(DWORD*)(a1 + base)) >> 4;
 	}
 
@@ -22,7 +22,7 @@ namespace Gettop {
 		DetourAttach(&reinterpret_cast<void*&>(GettopAddr), &gettop_detour);
 		DetourTransactionCommit();
 	
-		while (r_lua_state == 0) {
+		while (!state) {
 			Sleep(0.001f);
 		}
 
@@ -31,6 +31,6 @@ namespace Gettop {
 		DetourDetach(&reinterpret_cast<void*&>(GettopAddr), &gettop_detour);
 		DetourTransactionCommit();
 
-		return r_lua_state;
+		return state;
 	}
 }
